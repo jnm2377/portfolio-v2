@@ -7,7 +7,7 @@
 
 import React from "react";
 import PropTypes from "prop-types";
-import "../Styles/type.scss";
+import "../styles/type.scss";
 import Header from "./Header";
 
 const Layout = ({ children }) => {
