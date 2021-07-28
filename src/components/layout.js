@@ -14,7 +14,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <SEO />
-      {/* <Header /> */}
+      <Header />
       <main>{children}</main>
     </>
   );

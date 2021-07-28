@@ -299,31 +299,10 @@ const GunnySvg = () => {
 
 const LandingPage = () => {
   return (
-    <div className="landing-page-container">
-      <div className="landing-page-content">
-        <h1 className="callout">I will finish this eventually...</h1>
-        <p>
-          Thanks for showing up! In the meantime, enjoy this SVG of Gunny. Yes,
-          I made that.
-        </p>
-        <p>
-          Also, feel free to creep on my{" "}
-          <a target="_blank" href="https://twitter.com/brosefina_nm">
-            Twitter
-          </a>
-          ,{" "}
-          <a target="_blank" href="https://www.instagram.com/mankilla_art/">
-            IG
-          </a>{" "}
-          and checkout my{" "}
-          <a target="_blank" href="https://github.com/jnm2377">
-            GitHub
-          </a>{" "}
-          if you're into web dev shit.
-        </p>
-        <GunnySvg />
-      </div>
-    </div>
+    <>
+      <h1>Hello, I am Josefina</h1>
+      <h2>Something something something</h2>
+    </>
   );
 };
 
