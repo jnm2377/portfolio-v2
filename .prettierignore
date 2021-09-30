@@ -1,4 +1,6 @@
-.cache
-package.json
-package-lock.json
-public
+# Generated folders
+.next
+node_modules
+
+# Auto-generated file from yarn
+.yarnrc.yml

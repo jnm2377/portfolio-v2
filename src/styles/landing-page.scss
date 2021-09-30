@@ -1,0 +1,19 @@
+.gunny-svg-col {
+  background: #566fac;
+  position: relative;
+  padding: 16px;
+
+  @media (max-width: '672px') {
+    margin-top: 1rem;
+  }
+}
+
+.gunny-svg-col::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 1rem;
+  background: #ffd3e7;
+}
