@@ -45,8 +45,7 @@
       "eslint"
     ],
     "**/*.scss": [
-      "prettier --write",
-      "stylelint"
+      "prettier --write"
     ],
     "**/*.{md,yml}": [
       "prettier --write"
