@@ -263,7 +263,7 @@ export default function Home() {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <Grid className="home-content">
+      <Grid>
         <Column lg={4} md={3} sm={4}>
           <h1>Hola. Me llamo Josefina!</h1>
           <br />

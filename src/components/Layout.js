@@ -24,7 +24,7 @@ export default function Layout({ children, home }) {
       </Head>
       <Theme theme={home ? 'g90' : 'white'}>
         <Header />
-        <Content>{children}</Content>
+        <Content className={home ? 'home-content' : ''}>{children}</Content>
       </Theme>
     </>
   );
