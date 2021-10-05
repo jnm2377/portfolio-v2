@@ -21,3 +21,7 @@ body,
   //testing overriding active page border
   --cds-border-interactive: #a4b7ed;
 }
+
+.cds--header__action--active {
+  background: theme.$background;
+}

@@ -10,8 +10,25 @@ import {
   SideNavItems,
   HeaderSideNavItems,
 } from '@carbon/react';
+import { useRouter } from 'next/router';
+
+const Link = ({ children, href, ...rest }) => {
+  const router = useRouter();
+  return (
+    <a // eslint-disable-line jsx-a11y/anchor-is-valid
+      href="#"
+      {...rest}
+      onClick={(e) => {
+        e.preventDefault();
+        router.push(href);
+      }}>
+      {children}
+    </a>
+  );
+};
 
 export function Header() {
+  const router = useRouter();
   return (
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => (
@@ -22,16 +39,34 @@ export function Header() {
             onClick={onClickSideNavExpand}
             isActive={isSideNavExpanded}
           />
-          <HeaderName href="#" prefix="Josefina">
+          <HeaderName href="/" prefix="Josefina" element={Link}>
             Mancilla
           </HeaderName>
           <HeaderNavigation aria-label="Josefina Mancilla">
-            <HeaderMenuItem isCurrentPage href="#">
+            <HeaderMenuItem
+              isCurrentPage={router.pathname === '/about' ? true : false}
+              href="/about"
+              element={Link}>
               About
             </HeaderMenuItem>
-            <HeaderMenuItem href="#">Portfolio</HeaderMenuItem>
-            <HeaderMenuItem href="#">Blog</HeaderMenuItem>
-            <HeaderMenuItem href="#">Contact</HeaderMenuItem>
+            <HeaderMenuItem
+              isCurrentPage={router.pathname === '/portfolio' ? true : false}
+              href="/portfolio"
+              element={Link}>
+              Portfolio
+            </HeaderMenuItem>
+            <HeaderMenuItem
+              isCurrentPage={router.pathname === '/blog' ? true : false}
+              href="/blog"
+              element={Link}>
+              Blog
+            </HeaderMenuItem>
+            <HeaderMenuItem
+              isCurrentPage={router.pathname === '/contact' ? true : false}
+              href="/contact"
+              element={Link}>
+              Contact
+            </HeaderMenuItem>
           </HeaderNavigation>
           <SideNav
             aria-label="Side navigation"

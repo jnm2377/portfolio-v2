@@ -1,8 +1,9 @@
-import { Content, Link, Grid, Column } from '@carbon/react';
+import { Link, Grid, Column } from '@carbon/react';
 import { ArrowRight } from '@carbon/react/icons';
-import { Header } from '../components/Header';
+import Layout, { siteTitle } from '../components/Layout';
+import Head from 'next/head';
 
-export default function IndexPage() {
+export default function Home() {
   const GunnySvg = () => {
     return (
       <svg
@@ -258,34 +259,34 @@ export default function IndexPage() {
   };
 
   return (
-    <>
-      <Header />
-      <Content>
-        <Grid>
-          <Column lg={4} md={3} sm={4}>
-            <h1>Hola. Me llamo Josefina!</h1>
+    <Layout home>
+      <Head>
+        <title>{siteTitle}</title>
+      </Head>
+      <Grid className="home-content">
+        <Column lg={4} md={3} sm={4}>
+          <h1>Hola. Me llamo Josefina!</h1>
+          <br />
+          <div>
+            <p>
+              This is still a work in progress. Maybe I&apos;ll finish it this
+              year. Maybe not. If you wanna see some more of my work, you can
+              look at my old portfolio. It hasn&apos;t been updated since 2017,
+              though, so it&apos;s <em>maybe</em> not very accurate anymore haha
+              but it&apos;s fun to look at!
+            </p>
             <br />
-            <div>
-              <p>
-                This is still a work in progress. Maybe I&apos;ll finish it this
-                year. Maybe not. If you wanna see some more of my work, you can
-                look at my old portfolio. It hasn&apos;t been updated since
-                2017, though, so it&apos;s <em>maybe</em> not very accurate
-                anymore haha but it&apos;s fun to look at!
-              </p>
-              <br />
-              <Link
-                href="https://jnm2377.github.io/portfolio/"
-                renderIcon={ArrowRight16}>
-                Old af portfolio
-              </Link>
-            </div>
-          </Column>
-          <Column lg={12} md={5} sm={4} className="gunny-svg-col">
-            <GunnySvg />
-          </Column>
-        </Grid>
-      </Content>
-    </>
+            <Link
+              href="https://jnm2377.github.io/portfolio/"
+              renderIcon={ArrowRight16}>
+              Old af portfolio
+            </Link>
+          </div>
+        </Column>
+        <Column lg={12} md={5} sm={4} className="gunny-svg-col">
+          <GunnySvg />
+        </Column>
+      </Grid>
+    </Layout>
   );
 }
