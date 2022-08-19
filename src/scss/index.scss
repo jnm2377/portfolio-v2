@@ -1,27 +1,15 @@
-//import theme styles for global theming
-@use '@carbon/react/scss/compat/themes';
-
-//import theme tokens and setting g90 as global theme
-@use '@carbon/react/scss/compat/theme' with (
-  $theme: themes.$white,
-  $fallback: themes.$white
-);
-
-//import additional styles needed for inline theming
-@use '@carbon/react/scss/zone';
-
 //import the rest of carbon styles
-@use '@carbon/react/index';
+@use '@carbon/react';
 
 body,
 .cds--content {
-  background: theme.$background;
-  color: theme.$text-primary;
+  background: react.$background;
+  color: react.$text-primary;
 
   //testing overriding active page border
   --cds-border-interactive: #a4b7ed;
 }
 
 .cds--header__action--active {
-  background: theme.$background;
+  background: react.$background;
 }
