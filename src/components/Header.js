@@ -39,19 +39,17 @@ export function Header() {
             onClick={onClickSideNavExpand}
             isActive={isSideNavExpanded}
           />
-          <HeaderName href="/" prefix="Josefina" element={Link}>
-            Mancilla
-          </HeaderName>
+          <HeaderName href="/#landing" prefix="♥" element={Link} />
           <HeaderNavigation aria-label="Josefina Mancilla">
             <HeaderMenuItem
-              isCurrentPage={router.pathname === '/about' ? true : false}
-              href="/about"
+              isCurrentPage={router.pathname === '/#about' ? true : false}
+              href="/#about"
               element={Link}>
               About
             </HeaderMenuItem>
             <HeaderMenuItem
-              isCurrentPage={router.pathname === '/portfolio' ? true : false}
-              href="/portfolio"
+              isCurrentPage={router.pathname === '/#portfolio' ? true : false}
+              href="/#portfolio"
               element={Link}>
               Portfolio
             </HeaderMenuItem>
@@ -62,8 +60,8 @@ export function Header() {
               Blog
             </HeaderMenuItem>
             <HeaderMenuItem
-              isCurrentPage={router.pathname === '/contact' ? true : false}
-              href="/contact"
+              isCurrentPage={router.pathname === '/#contact' ? true : false}
+              href="/#contact"
               element={Link}>
               Contact
             </HeaderMenuItem>

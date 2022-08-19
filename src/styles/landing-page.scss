@@ -1,29 +1,13 @@
-.gunny-svg-col {
-  background: #566fac;
-  position: relative;
-  padding: 16px;
-  height: calc(25rem);
-
-  @media (max-width: '672px') {
-    margin-top: 1rem;
-  }
+.landing-page {
+  background: rgb(240, 244, 248);
+  height: calc(100vh - 3rem);
+  width: 100%;
 }
 
-.gunny-svg-col::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 1rem;
-  background: #ffd3e7;
+.main-content {
+  height: 100vh;
 }
 
-.home-content {
-  height: calc(100vh - 48px);
-}
-
-.gunny-svg-col svg {
+.homepage-section {
   height: 20rem;
-  width: 20rem;
 }
