@@ -33,12 +33,12 @@ export function Header() {
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => (
         <CarbonHeader aria-label="Josefina Mancilla">
-          <SkipToContent />
-          <HeaderMenuButton
+          {/* <SkipToContent /> */}
+          {/* <HeaderMenuButton
             aria-label="Open menu"
             onClick={onClickSideNavExpand}
             isActive={isSideNavExpanded}
-          />
+          /> */}
           <HeaderName href="/#landing" prefix="♥" element={Link} />
           <HeaderNavigation aria-label="Josefina Mancilla">
             <HeaderMenuItem
@@ -66,7 +66,7 @@ export function Header() {
               Contact
             </HeaderMenuItem>
           </HeaderNavigation>
-          <SideNav
+          {/* <SideNav
             aria-label="Side navigation"
             expanded={isSideNavExpanded}
             isPersistent={false}>
@@ -80,7 +80,7 @@ export function Header() {
                 <HeaderMenuItem href="#">Contact</HeaderMenuItem>
               </HeaderSideNavItems>
             </SideNavItems>
-          </SideNav>
+          </SideNav> */}
         </CarbonHeader>
       )}
     />

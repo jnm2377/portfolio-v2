@@ -10,13 +10,21 @@ export default function Home() {
       <Layout>
         <div className="main-content">
           <section id="about" className="homepage-section">
-            about me
+            <h2>About</h2>
+            <p>
+              Hello. My name is Josefina Mancilla. I am a front end developer
+              from Austin, Texas.{' '}
+            </p>
           </section>
           <section id="portfolio" className="homepage-section">
-            portfolio
+            <h2>Portfolio</h2>
+            <p>
+              Here's some of the stuff I've worked on in the last few years.
+            </p>
           </section>
           <section id="contact" className="homepage-section">
-            contact
+            <h2>Contact</h2>
+            <p>Find me on LinkedIn, Twitter, Instagram and GitHub.</p>
           </section>
         </div>
       </Layout>

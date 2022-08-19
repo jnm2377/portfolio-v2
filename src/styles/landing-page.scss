@@ -6,6 +6,8 @@
     rgba(222, 173, 250, 1) 0%,
     rgba(192, 244, 255, 1) 100%
   );
+  // background: linear-gradient(90deg, rgba(255, 223, 223, 1) 0%, rgba(225, 208, 255, 1) 100%);
+
   height: calc(100vh - 3rem);
   width: 100%;
 
@@ -24,6 +26,7 @@
 
 .homepage-section {
   height: 20rem;
+  padding-top: 4rem;
 }
 
 .cds--header {
@@ -33,6 +36,12 @@
     rgba(222, 173, 250, 1) 0%,
     rgba(192, 244, 255, 1) 100%
   );
+  background: linear-gradient(
+    90deg,
+    rgba(192, 244, 255, 1) 0%,
+    rgba(222, 173, 250, 1) 100%
+  );
+  // background: linear-gradient(90deg, rgba(255, 223, 223, 1) 0%, rgba(225, 208, 255, 1) 100%);
 }
 
 a.cds--header__menu-item {
