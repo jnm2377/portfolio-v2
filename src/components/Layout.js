@@ -1,13 +1,14 @@
-import { Content, Theme } from '@carbon/react';
+import { Content } from '@carbon/react';
 import { Header } from './Header';
 import Head from 'next/head';
 
-export const siteTitle = 'Josefina Mancilla';
+export default function Layout({ children }) {
+  const siteTitle = 'Josefina Mancilla';
 
-export default function Layout({ children, home }) {
   return (
     <>
       <Head>
+        <title>{siteTitle}</title>
         {/* <link rel="icon" href="/favicon.ico" /> */}
         <meta
           name="Josefina Mancilla"
@@ -22,10 +23,8 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         {/* <meta name="twitter:card" content="summary_large_image" /> */}
       </Head>
-      <Theme theme={home ? 'g90' : 'white'}>
-        <Header />
-        <Content className={home ? 'home-content' : ''}>{children}</Content>
-      </Theme>
+      <Header />
+      <Content>{children}</Content>
     </>
   );
 }
