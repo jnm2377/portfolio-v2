@@ -1,11 +1,11 @@
 import Layout from '../components/Layout';
+import Typewriter from '../components/Typewriter';
 
 export default function Home() {
   return (
     <>
       <div className="landing-page" id="landing">
-        {' '}
-        Josefina
+        <Typewriter />
       </div>
       <Layout>
         <div className="main-content">

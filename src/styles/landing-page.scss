@@ -1,7 +1,21 @@
 .landing-page {
-  background: rgb(240, 244, 248);
+  //fallback background
+  background: rgb(222, 173, 250);
+  background: linear-gradient(
+    90deg,
+    rgba(222, 173, 250, 1) 0%,
+    rgba(192, 244, 255, 1) 100%
+  );
   height: calc(100vh - 3rem);
   width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-page h1 {
+  font-size: 5rem;
 }
 
 .main-content {
@@ -10,4 +24,26 @@
 
 .homepage-section {
   height: 20rem;
+}
+
+.cds--header {
+  position: sticky;
+  background: linear-gradient(
+    90deg,
+    rgba(222, 173, 250, 1) 0%,
+    rgba(192, 244, 255, 1) 100%
+  );
+}
+
+a.cds--header__menu-item {
+  background-color: transparent;
+}
+
+a.cds--header__menu-item:focus {
+  border: 2px solid white;
+}
+
+a.cds--header__menu-item:hover {
+  background-color: transparent;
+  text-decoration: line-through;
 }
