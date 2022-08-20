@@ -6,8 +6,9 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
+import PostBackClick from '../../components/PostBackClick';
 
-const components = {};
+const components = { PostBackClick };
 
 export default function PostPage({ source }) {
   return (
