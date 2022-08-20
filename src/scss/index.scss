@@ -3,7 +3,7 @@
 
 body,
 .cds--content {
-  background: react.$background;
+  background: react.$layer-01;
   color: react.$text-primary;
 
   //testing overriding active page border
@@ -15,7 +15,7 @@ body,
 }
 
 .theme-section {
-  background: react.$background;
+  background: react.$layer-01;
   color: react.$text-primary;
 }
 
