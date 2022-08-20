@@ -9,7 +9,6 @@
     rgba(222, 173, 250, 1) 0%,
     rgba(192, 244, 255, 1) 100%
   );
-  // background: linear-gradient(90deg, rgba(255, 223, 223, 1) 0%, rgba(225, 208, 255, 1) 100%);
 
   height: calc(100vh - 3rem);
   width: 100%;
@@ -29,15 +28,11 @@
 
 .cds--header {
   position: sticky;
-  // background: linear-gradient(90deg,
-  //     rgba(222, 173, 250, 1) 0%,
-  //     rgba(192, 244, 255, 1) 100%);
   background: linear-gradient(
     90deg,
     rgba(192, 244, 255, 1) 0%,
     rgba(222, 173, 250, 1) 100%
   );
-  // background: linear-gradient(90deg, rgba(255, 223, 223, 1) 0%, rgba(225, 208, 255, 1) 100%);
 }
 
 a.cds--header__menu-item {
@@ -45,8 +40,13 @@ a.cds--header__menu-item {
   color: $text-primary;
 }
 
-a.cds--header__menu-item:focus {
-  border: 2px solid white;
+a.cds--header__name {
+  padding-right: 1rem;
+}
+
+a.cds--header__menu-item:focus,
+a.cds--header__name:focus {
+  border: 2px solid $text-primary;
 }
 
 a.cds--header__menu-item:hover {
@@ -55,7 +55,11 @@ a.cds--header__menu-item:hover {
 }
 
 .cds--header__nav::before {
-  background-color: $text-primary;
+  display: none;
+}
+
+a.cds--header__name:hover {
+  text-decoration: line-through;
 }
 
 // -----------------
@@ -89,4 +93,17 @@ a.cds--header__menu-item:hover {
 .homepage-section {
   height: 20rem;
   padding-top: 4rem;
+}
+
+// -----------------
+// toggle
+// -----------------
+
+.cds--toggle__text {
+  line-height: 14px;
+}
+
+.cds--toggle {
+  height: 3rem;
+  padding-left: 1rem;
 }
