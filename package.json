@@ -8,7 +8,6 @@
     "format": "prettier --write '**/*.{js,md,scss,ts,tsx,yml}' '!**/{build,es,lib,storybook,ts,umd}/**'",
     "format:diff": "prettier --list-different '**/*.{js,md,scss,ts,tsx,yml}' '!**/{build,es,lib,storybook,ts,umd}/**'",
     "lint": "eslint src",
-    "lint:styles": "stylelint '**/*.{css,scss}'",
     "start": "next start",
     "test": "jest",
     "postinstall": "husky install"

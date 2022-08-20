@@ -17,7 +17,8 @@ export default function BlogIndex({ posts }) {
               <li key={post.filePath}>
                 <Link
                   as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
-                  href={`/posts/[slug]`}>
+                  href={`/posts/[slug]`}
+                >
                   {post.data.title}
                 </Link>
               </li>
