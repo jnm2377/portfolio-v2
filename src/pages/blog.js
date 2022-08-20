@@ -1,4 +1,4 @@
-import { Grid, Column } from '@carbon/react';
+import { Grid, Column, Tile, Stack, Layer } from '@carbon/react';
 import Layout from '../components/Layout';
 import fs from 'fs';
 import matter from 'gray-matter';
@@ -12,18 +12,20 @@ export default function BlogIndex({ posts }) {
       <Grid>
         <Column lg={4} md={3} sm={4}>
           This is the blog index page
-          <ul>
-            {posts.map((post) => (
-              <li key={post.filePath}>
+          <Layer style={{ paddingTop: '3rem' }}>
+            <Stack gap={1}>
+              {posts.map((post) => (
                 <Link
                   as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
                   href={`/posts/[slug]`}
+                  key={post.filePath}
+                  className="blog-post-link"
                 >
-                  {post.data.title}
+                  <Tile className="blog-post-tile">{post.data.title}</Tile>
                 </Link>
-              </li>
-            ))}
-          </ul>
+              ))}
+            </Stack>
+          </Layer>
         </Column>
       </Grid>
     </Layout>
