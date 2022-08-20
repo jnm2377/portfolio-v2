@@ -50,7 +50,9 @@ export function Header() {
             onClick={onClickSideNavExpand}
             isActive={isSideNavExpanded}
           /> */}
-          <HeaderName href="/#landing" prefix="♥" element={Link} />
+          <HeaderName href="/#hello" prefix="♥" element={Link}>
+            {''}
+          </HeaderName>
           <HeaderNavigation aria-label="Josefina Mancilla">
             <HeaderMenuItem
               isCurrentPage={router.pathname === '/#about' ? true : false}
@@ -60,11 +62,11 @@ export function Header() {
               About
             </HeaderMenuItem>
             <HeaderMenuItem
-              isCurrentPage={router.pathname === '/#portfolio' ? true : false}
-              href="/#portfolio"
+              isCurrentPage={router.pathname === '/#work' ? true : false}
+              href="/#work"
               element={Link}
             >
-              Portfolio
+              Work
             </HeaderMenuItem>
             <HeaderMenuItem
               isCurrentPage={router.pathname === '/blog' ? true : false}
@@ -95,6 +97,7 @@ export function Header() {
             id="toggle-1"
             toggled={theme === 'g10' ? false : true}
             size="sm"
+            labelText=""
           />
           {/* <SideNav
             aria-label="Side navigation"
