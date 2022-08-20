@@ -1,6 +1,9 @@
+@use '@carbon/react/scss/theme' as *;
+
+// -----------------
+// landing
+// -----------------
 .landing-page {
-  //fallback background
-  background: rgb(222, 173, 250);
   background: linear-gradient(
     90deg,
     rgba(222, 173, 250, 1) 0%,
@@ -20,22 +23,15 @@
   font-size: 5rem;
 }
 
-.main-content {
-  height: 100vh;
-}
-
-.homepage-section {
-  height: 20rem;
-  padding-top: 4rem;
-}
+// -----------------
+// header
+// -----------------
 
 .cds--header {
   position: sticky;
-  background: linear-gradient(
-    90deg,
-    rgba(222, 173, 250, 1) 0%,
-    rgba(192, 244, 255, 1) 100%
-  );
+  // background: linear-gradient(90deg,
+  //     rgba(222, 173, 250, 1) 0%,
+  //     rgba(192, 244, 255, 1) 100%);
   background: linear-gradient(
     90deg,
     rgba(192, 244, 255, 1) 0%,
@@ -46,6 +42,7 @@
 
 a.cds--header__menu-item {
   background-color: transparent;
+  color: $text-primary;
 }
 
 a.cds--header__menu-item:focus {
@@ -55,4 +52,41 @@ a.cds--header__menu-item:focus {
 a.cds--header__menu-item:hover {
   background-color: transparent;
   text-decoration: line-through;
+}
+
+.cds--header__nav::before {
+  background-color: $text-primary;
+}
+
+// -----------------
+// dark
+// -----------------
+
+.dark-landing {
+  background: linear-gradient(
+    90deg,
+    rgba(4, 35, 103, 1) 0%,
+    rgba(44, 130, 122, 1) 100%
+  );
+}
+
+.dark-header {
+  background: linear-gradient(
+    90deg,
+    rgba(44, 130, 122, 1) 0%,
+    rgba(4, 35, 103, 1) 100%
+  );
+}
+
+// -----------------
+// content
+// -----------------
+
+.main-content {
+  height: 100vh;
+}
+
+.homepage-section {
+  height: 20rem;
+  padding-top: 4rem;
 }

@@ -13,3 +13,16 @@ body,
 .cds--header__action--active {
   background: react.$background;
 }
+
+.theme-section {
+  background: react.$background;
+  color: react.$text-primary;
+}
+
+:root {
+  @include react.theme(react.$g10);
+}
+
+[data-carbon-theme='g100'] {
+  @include react.theme(react.$g100);
+}
