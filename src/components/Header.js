@@ -9,8 +9,12 @@ import {
   SideNav,
   SideNavItems,
   HeaderSideNavItems,
+  Toggle,
 } from '@carbon/react';
 import { useRouter } from 'next/router';
+import { useThemePreference } from './ThemePreference';
+import cx from 'classnames';
+import { Asleep, LightFilled } from '@carbon/react/icons';
 
 const Link = ({ children, href, ...rest }) => {
   const router = useRouter();
@@ -21,7 +25,8 @@ const Link = ({ children, href, ...rest }) => {
       onClick={(e) => {
         e.preventDefault();
         router.push(href);
-      }}>
+      }}
+    >
       {children}
     </a>
   );
@@ -29,10 +34,16 @@ const Link = ({ children, href, ...rest }) => {
 
 export function Header() {
   const router = useRouter();
+  const { theme, setTheme } = useThemePreference();
+  const headerClassNames = cx({ ['dark-header']: theme === 'g100' });
+
   return (
     <HeaderContainer
       render={({ isSideNavExpanded, onClickSideNavExpand }) => (
-        <CarbonHeader aria-label="Josefina Mancilla">
+        <CarbonHeader
+          aria-label="Josefina Mancilla"
+          className={headerClassNames}
+        >
           {/* <SkipToContent /> */}
           {/* <HeaderMenuButton
             aria-label="Open menu"
@@ -44,28 +55,47 @@ export function Header() {
             <HeaderMenuItem
               isCurrentPage={router.pathname === '/#about' ? true : false}
               href="/#about"
-              element={Link}>
+              element={Link}
+            >
               About
             </HeaderMenuItem>
             <HeaderMenuItem
               isCurrentPage={router.pathname === '/#portfolio' ? true : false}
               href="/#portfolio"
-              element={Link}>
+              element={Link}
+            >
               Portfolio
             </HeaderMenuItem>
             <HeaderMenuItem
               isCurrentPage={router.pathname === '/blog' ? true : false}
               href="/blog"
-              element={Link}>
+              element={Link}
+            >
               Blog
             </HeaderMenuItem>
             <HeaderMenuItem
               isCurrentPage={router.pathname === '/#contact' ? true : false}
               href="/#contact"
-              element={Link}>
+              element={Link}
+            >
               Contact
             </HeaderMenuItem>
           </HeaderNavigation>
+          <Toggle
+            onToggle={() => {
+              if (theme === 'g10') {
+                setTheme('g100');
+              }
+              if (theme === 'g100') {
+                setTheme('g10');
+              }
+            }}
+            labelA={<LightFilled />}
+            labelB={<Asleep />}
+            id="toggle-1"
+            toggled={theme === 'g10' ? false : true}
+            size="sm"
+          />
           {/* <SideNav
             aria-label="Side navigation"
             expanded={isSideNavExpanded}

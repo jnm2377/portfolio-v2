@@ -1,10 +1,18 @@
 import Layout from '../components/Layout';
 import Typewriter from '../components/Typewriter';
+import { useThemePreference } from '../components/ThemePreference';
+import cx from 'classnames';
 
 export default function Home() {
+  const { theme } = useThemePreference();
+
+  const landingClassNames = cx('landing-page', {
+    ['dark-landing']: theme === 'g100',
+  });
+
   return (
     <>
-      <div className="landing-page" id="landing">
+      <div className={landingClassNames} id="landing">
         <Typewriter />
       </div>
       <Layout>

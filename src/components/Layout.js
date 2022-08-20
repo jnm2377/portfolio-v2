@@ -1,9 +1,11 @@
-import { Content } from '@carbon/react';
+import { Content, Theme } from '@carbon/react';
 import { Header } from './Header';
 import Head from 'next/head';
+import { useThemePreference } from './ThemePreference';
 
 export default function Layout({ children }) {
   const siteTitle = 'Josefina Mancilla';
+  const { theme } = useThemePreference();
 
   return (
     <>
@@ -24,7 +26,9 @@ export default function Layout({ children }) {
         {/* <meta name="twitter:card" content="summary_large_image" /> */}
       </Head>
       <Header />
-      <Content>{children}</Content>
+      <Theme theme={theme}>
+        <Content>{children}</Content>
+      </Theme>
     </>
   );
 }
