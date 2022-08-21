@@ -30,8 +30,8 @@
   position: sticky;
   background: linear-gradient(
     90deg,
-    rgba(192, 244, 255, 1) 0%,
-    rgba(222, 173, 250, 1) 100%
+    rgba(222, 173, 250, 1) 0%,
+    rgba(192, 244, 255, 1) 100%
   );
 }
 
@@ -77,8 +77,8 @@ a.cds--header__name:hover {
 .dark-header {
   background: linear-gradient(
     90deg,
-    rgba(44, 130, 122, 1) 0%,
-    rgba(4, 35, 103, 1) 100%
+    rgba(4, 35, 103, 1) 0%,
+    rgba(44, 130, 122, 1) 100%
   );
 }
 
@@ -86,18 +86,31 @@ a.cds--header__name:hover {
 // content
 // -----------------
 
+.cds--content {
+  padding: 0;
+}
+
 .main-content {
   margin: auto;
 }
 
 .homepage-section {
   padding-top: 4rem;
-  max-width: 50rem;
-  margin: auto;
+  padding-bottom: 8rem;
 }
 
-.homepage-section:last-child {
-  padding-bottom: 8rem;
+.section-content {
+  max-width: 50rem;
+  margin: auto;
+  padding: 2rem;
+}
+
+.contact-form {
+  padding: 1rem;
+  margin-top: 3rem;
+  border-radius: 5px;
+  background: $field-01;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 }
 
 // -----------------
@@ -119,19 +132,28 @@ a.cds--header__name:hover {
 
 //light
 .cds--g10 {
-  .cds--tile--clickable,
-  .blog-post-tile {
-    background: linear-gradient(
-      90deg,
-      rgba(222, 173, 250, 1) 0%,
-      rgba(192, 244, 255, 1) 100%
-    );
-    transition: all 200ms ease;
+  //contact bg
+  .homepage-section:last-child {
+    background: rgb(248, 241, 252);
+  }
+
+  .cds--tile--clickable::after,
+  .blog-post-tile::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: rgba(222, 173, 250, 1);
+    transition: width 500ms ease;
   }
 
   .cds--tile--clickable:hover,
   .blog-post-tile:hover {
-    transform: translateX(-2rem);
+    &::after {
+      width: 100%;
+    }
   }
 
   .cds--text-input,
@@ -159,19 +181,28 @@ a.cds--header__name:hover {
 
 //dark
 .cds--g100 {
-  .cds--tile--clickable,
-  .blog-post-tile {
-    background: linear-gradient(
-      90deg,
-      rgba(4, 35, 103, 1) 0%,
-      rgba(44, 130, 122, 1) 100%
-    );
-    transition: all 200ms ease;
+  //contact bg
+  .homepage-section:last-child {
+    background: #1c1f24;
+  }
+
+  .cds--tile--clickable::after,
+  .blog-post-tile::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background-color: rgba(44, 130, 122, 1);
+    transition: width 500ms ease;
   }
 
   .cds--tile--clickable:hover,
   .blog-post-tile:hover {
-    transform: translateX(-2rem);
+    &::after {
+      width: 100%;
+    }
   }
 
   .cds--text-input,
