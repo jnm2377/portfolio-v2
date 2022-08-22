@@ -16,7 +16,11 @@ export default function PostPage({ source }) {
       <Head>
         <title>{source.title}</title>
       </Head>
-      <MDXRemote {...source} components={components} />
+      <div className="section-content">
+        <div className="center-content">
+          <MDXRemote {...source} components={components} />
+        </div>
+      </div>
     </Layout>
   );
 }

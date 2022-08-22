@@ -265,32 +265,3 @@ a.cds--header__name:hover {
 .cds--g100 .social-icons a:hover svg {
   fill: rgba(44, 130, 122, 1);
 }
-
-// -----------------
-// blog tiles
-// -----------------
-
-.blog-post-tile::after {
-  position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  height: 2px;
-  width: 0;
-  background-color: rgba(222, 173, 250, 1);
-  transition: width 500ms ease;
-}
-
-.blog-post-tile:hover {
-  &::after {
-    width: 100%;
-  }
-}
-
-.cds--g100 .blog-post-tile::after {
-  background-color: rgba(44, 130, 122, 1);
-}
-
-.blog-post-link:focus {
-  border: 2px solid $focus;
-}
