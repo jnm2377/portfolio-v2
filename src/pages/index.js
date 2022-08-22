@@ -102,23 +102,29 @@ export default function Home() {
                       href="https://www.carbondesignsystem.com/"
                       className="portfolio-tile one-tile"
                     >
-                      <AspectRatio ratio="16x9">Some link here</AspectRatio>
+                      <AspectRatio ratio="16x9">
+                        <h4>Carbon Design System</h4>
+                      </AspectRatio>
                     </ClickableTile>
                   </Column>
                   <Column lg={8} md={4} sm={4}>
                     <ClickableTile
-                      href="https://www.ibm.com/design"
+                      href="https://www.austincold.com"
                       className="portfolio-tile two-tile"
                     >
-                      <AspectRatio ratio="16x9">Some link here</AspectRatio>
+                      <AspectRatio ratio="16x9">
+                        <h4>Austin Cold</h4>
+                      </AspectRatio>
                     </ClickableTile>
                   </Column>
                   <Column lg={8} md={4} sm={4}>
                     <ClickableTile
-                      href="https://www.carbondesignsystem.com/"
+                      href="https://www.ibm.com/design/language/"
                       className="portfolio-tile three-tile"
                     >
-                      <AspectRatio ratio="16x9">Some link here</AspectRatio>
+                      <AspectRatio ratio="16x9">
+                        <h4>IBM Design Language</h4>
+                      </AspectRatio>
                     </ClickableTile>
                   </Column>
                   <Column lg={8} md={4} sm={4}>
@@ -126,7 +132,9 @@ export default function Home() {
                       href="https://www.ibm.com/design"
                       className="portfolio-tile four-tile"
                     >
-                      <AspectRatio ratio="16x9">Some link here</AspectRatio>
+                      <AspectRatio ratio="16x9">
+                        <h4>IBM.com/design</h4>
+                      </AspectRatio>
                     </ClickableTile>
                   </Column>
                 </Grid>
