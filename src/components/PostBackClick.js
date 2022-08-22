@@ -1,18 +1,19 @@
 import { useRouter } from 'next/router';
+import { Button } from '@carbon/react';
+import { ArrowLeft } from '@carbon/react/icons';
 
-const PostBackClick = ({ className, href = '/blog' }) => {
+const PostBackClick = ({ href = '/blog' }) => {
   const router = useRouter();
   return (
-    <a // eslint-disable-line jsx-a11y/anchor-is-valid
-      href="#"
-      className={className}
+    <Button
+      className="post-back-click"
       onClick={(e) => {
         e.preventDefault();
         router.push(href);
       }}
     >
-      Back to blog index
-    </a>
+      <ArrowLeft /> Back to blog index
+    </Button>
   );
 };
 
