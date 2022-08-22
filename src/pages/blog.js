@@ -54,7 +54,9 @@ export default function BlogIndex({ posts }) {
                     ['three-tile']: i === 2,
                   })}
                 >
-                  <AspectRatio ratio="16x9">{post.data.title}</AspectRatio>
+                  <AspectRatio ratio="16x9">
+                    <h4>{post.data.title}</h4>
+                  </AspectRatio>
                 </ClickableTile>
               </Link>
             </Column>

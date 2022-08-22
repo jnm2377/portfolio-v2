@@ -10,14 +10,17 @@ import PostBackClick from '../../components/PostBackClick';
 
 const components = { PostBackClick };
 
-export default function PostPage({ source }) {
+export default function PostPage({ source, frontMatter }) {
   return (
     <Layout>
       <Head>
-        <title>{source.title}</title>
+        <title>{frontMatter.title}</title>
       </Head>
       <div className="section-content">
         <div className="center-content">
+          <PostBackClick />
+          <h1 style={{ paddingTop: '2rem' }}>{frontMatter.title}</h1>
+          <p>{frontMatter.date}</p>
           <MDXRemote {...source} components={components} />
         </div>
       </div>
