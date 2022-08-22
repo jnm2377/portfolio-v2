@@ -3,7 +3,7 @@ import { Header } from './Header';
 import Head from 'next/head';
 import { useThemePreference } from './ThemePreference';
 
-export default function Layout({ children }) {
+export default function Layout({ children, home = false }) {
   const siteTitle = 'Josefina Mancilla';
   const { theme } = useThemePreference();
 
@@ -25,7 +25,7 @@ export default function Layout({ children }) {
         <meta name="og:title" content={siteTitle} />
         {/* <meta name="twitter:card" content="summary_large_image" /> */}
       </Head>
-      <Header />
+      <Header home={home} />
       <Theme theme={theme}>
         <Content>{children}</Content>
       </Theme>
