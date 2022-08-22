@@ -15,6 +15,7 @@ import { useRouter } from 'next/router';
 import { useThemePreference } from './ThemePreference';
 import cx from 'classnames';
 import { Asleep, LightFilled } from '@carbon/react/icons';
+import { useEffect, useRef, useState } from 'react';
 
 const Link = ({ children, href, ...rest }) => {
   const router = useRouter();
@@ -32,10 +33,30 @@ const Link = ({ children, href, ...rest }) => {
   );
 };
 
-export function Header() {
+export function Header({ home }) {
   const router = useRouter();
   const { theme, setTheme } = useThemePreference();
-  const headerClassNames = cx({ ['dark-header']: theme === 'g100' });
+  const [scrollTop, setScrollTop] = useState(0);
+  const [headerPostition, setHeaderPosition] = useState(null);
+
+  const headerClassNames = cx({
+    ['dark-header']: theme === 'g100',
+    ['is-sticky']: headerPostition === 0,
+    ['no-scroll']: !home,
+  });
+
+  useEffect(() => {
+    function onScroll() {
+      let currentPosition = window.pageYOffset;
+      setScrollTop(currentPosition <= 0 ? 0 : currentPosition);
+      setHeaderPosition(
+        document.querySelector('.cds--header').getBoundingClientRect().y
+      );
+    }
+
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [scrollTop]);
 
   return (
     <HeaderContainer

@@ -30,8 +30,8 @@
   position: sticky;
   background: linear-gradient(
     90deg,
-    rgba(192, 244, 255, 1) 0%,
-    rgba(222, 173, 250, 1) 100%
+    rgba(222, 173, 250, 1) 0%,
+    rgba(192, 244, 255, 1) 100%
   );
 }
 
@@ -45,7 +45,8 @@ a.cds--header__name {
 }
 
 a.cds--header__menu-item:focus,
-a.cds--header__name:focus {
+a.cds--header__name:focus,
+a.cds--header__menu-item.cds--header__menu-item--current:focus {
   border: 2px solid $text-primary;
 }
 
@@ -62,42 +63,30 @@ a.cds--header__name:hover {
   text-decoration: line-through;
 }
 
-// -----------------
-// dark
-// -----------------
-
-.dark-landing {
-  background: linear-gradient(
-    90deg,
-    rgba(4, 35, 103, 1) 0%,
-    rgba(44, 130, 122, 1) 100%
-  );
+.cds--header__menu-item--current::after {
+  border-bottom: 2px solid rgba(222, 173, 250, 1);
 }
 
+// -----------------
+// dark landing
+// -----------------
+
+.dark-landing,
 .dark-header {
   background: linear-gradient(
     90deg,
-    rgba(44, 130, 122, 1) 0%,
-    rgba(4, 35, 103, 1) 100%
+    rgba(3, 23, 66, 1) 0%,
+    rgba(2, 64, 58, 1) 100%
   );
 }
 
-// -----------------
-// content
-// -----------------
-
-.main-content {
-  margin: auto;
+.dark-header .cds--header__menu-item--current::after {
+  border-bottom: 2px solid rgba(44, 130, 122, 1);
 }
 
-.homepage-section {
-  padding-top: 4rem;
-  max-width: 50rem;
-  margin: auto;
-}
-
-.homepage-section:last-child {
-  padding-bottom: 8rem;
+.is-sticky,
+.no-scroll {
+  background: $layer-01;
 }
 
 // -----------------
@@ -114,85 +103,189 @@ a.cds--header__name:hover {
 }
 
 // -----------------
-// component overrides
+// content
 // -----------------
 
-//light
-.cds--g10 {
-  .cds--tile--clickable,
-  .blog-post-tile {
-    background: linear-gradient(
-      90deg,
-      rgba(222, 173, 250, 1) 0%,
-      rgba(192, 244, 255, 1) 100%
-    );
-    transition: all 200ms ease;
-  }
+.cds--css-grid {
+  max-width: 100%;
+  padding: 0;
+}
 
-  .cds--tile--clickable:hover,
-  .blog-post-tile:hover {
-    transform: translateX(-2rem);
-  }
+.cds--css-grid-column {
+  margin: 0;
+}
 
-  .cds--text-input,
-  .cds--text-area {
-    border: 1px solid transparent;
-    transition: border-width 200ms ease;
-    border-bottom: 1px solid rgba(222, 173, 250, 1);
-  }
+.cds--content {
+  padding: 0;
+}
 
-  .cds--text-input:focus,
-  .cds--text-input:active,
-  .cds--text-area:focus,
-  .cds--text-area:active {
-    border: 2px solid;
-    border-image-slice: 1;
-    border-width: 2px;
-    border-image-source: linear-gradient(
-      90deg,
-      rgba(222, 173, 250, 1) 0%,
-      rgba(192, 244, 255, 1) 100%
-    );
-    outline: none;
+.main-content {
+  margin: auto;
+}
+
+.homepage-section {
+  padding-top: 4rem;
+}
+
+.homepage-section:last-child {
+  padding-bottom: 8rem;
+}
+
+.center-content {
+  max-width: 50rem;
+  margin: auto;
+  padding: 2rem;
+}
+
+// -----------------
+// portfolio tiles
+// -----------------
+.portfolio-tile:focus,
+.portfolio-tile:active {
+  outline: 2px solid $text-primary;
+  outline-offset: -6px;
+}
+
+.one-tile {
+  background: rgba(192, 244, 255, 0.7);
+  &:hover {
+    background: rgba(192, 244, 255, 0.85);
   }
 }
 
-//dark
+.two-tile {
+  background: rgba(253, 244, 119, 0.7);
+  &:hover {
+    background: rgba(253, 244, 119, 0.85);
+  }
+
+  &:focus {
+    outline: 2px solid black;
+  }
+}
+
+.three-tile {
+  background: rgba(222, 173, 250, 0.7);
+  &:hover {
+    background: rgba(222, 173, 250, 0.85);
+  }
+}
+
+.four-tile {
+  background: $layer-01;
+  &:hover {
+    background: rgb(249, 247, 247);
+  }
+}
+
 .cds--g100 {
-  .cds--tile--clickable,
-  .blog-post-tile {
-    background: linear-gradient(
-      90deg,
-      rgba(4, 35, 103, 1) 0%,
-      rgba(44, 130, 122, 1) 100%
-    );
-    transition: all 200ms ease;
+  .one-tile {
+    background: rgba(22, 22, 22, 1);
+    &:hover {
+      background: rgba(22, 22, 22, 0.7);
+    }
   }
 
-  .cds--tile--clickable:hover,
-  .blog-post-tile:hover {
-    transform: translateX(-2rem);
+  .two-tile {
+    background: rgba(253, 244, 119, 1);
+    color: black;
+    &:hover {
+      background: rgba(253, 244, 119, 0.9);
+      color: black;
+    }
   }
 
-  .cds--text-input,
-  .cds--text-area {
-    border: 1px solid transparent;
-    transition: border-width 200ms ease;
-    border-bottom: 1px solid rgba(44, 130, 122, 1);
+  .three-tile {
+    background: rgba(2, 64, 58, 1);
+    &:hover {
+      background: rgba(2, 64, 58, 0.7);
+    }
   }
 
-  .cds--text-input:focus,
-  .cds--text-input:active,
-  .cds--text-area:focus,
-  .cds--text-area:active {
-    border: 2px solid;
-    border-image-slice: 1;
-    border-width: 2px;
-    border-image-source: linear-gradient(
-      90deg,
-      rgba(4, 35, 103, 1) 0%,
-      rgba(44, 130, 122, 1) 100%
-    );
-    outline: none;
+  .four-tile {
+    background: rgba(3, 23, 66, 1);
+    &:hover {
+      background: rgba(3, 23, 66, 0.6);
+    }
+  }
+}
+
+// -----------------
+// contact section
+// -----------------
+
+//light
+.homepage-section:last-child {
+  background: rgb(248, 241, 252);
+}
+
+.cds--text-input,
+.cds--text-area {
+  border: 2px solid transparent;
+  transition: all 200ms ease;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(222, 173, 250, 1);
+}
+
+//dark
+.cds--g100 .homepage-section:last-child {
+  background: $layer-01;
+}
+
+.cds--g100 .cds--text-input,
+.cds--g100 .cds--text-area {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-bottom: 2px solid rgba(44, 130, 122, 1);
+}
+
+.contact-form {
+  max-width: 400px;
+  padding-top: 2rem;
+}
+
+// icons
+.social-icons {
+  margin-left: -0.5rem;
+}
+
+.social-icons a {
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+
+.social-icons a svg {
+  fill: $icon-primary;
+}
+
+.social-icons a:hover svg {
+  fill: rgba(222, 173, 250, 1);
+  transition: fill 200ms ease;
+}
+
+.cds--g100 .social-icons a:hover svg {
+  fill: rgba(44, 130, 122, 1);
+}
+// -----------------
+// blog
+// -----------------
+.post-back-click {
+  color: $text-primary;
+  background: rgba(192, 244, 255, 0.7);
+  padding-right: 1rem;
+  &:hover {
+    background: rgba(192, 244, 255, 0.85);
+    color: $text-primary;
+    text-decoration: line-through;
+  }
+  &:focus {
+    outline: 2px solid $text-primary;
+    outline-offset: -2px;
+  }
+}
+
+.cds--g100 .post-back-click {
+  background: rgba(2, 64, 58, 1);
+  &:hover {
+    background: rgba(2, 64, 58, 0.7);
   }
 }

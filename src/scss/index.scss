@@ -5,9 +5,6 @@ body,
 .cds--content {
   background: react.$layer-01;
   color: react.$text-primary;
-
-  //testing overriding active page border
-  --cds-border-interactive: #a4b7ed;
 }
 
 .cds--header__action--active {
