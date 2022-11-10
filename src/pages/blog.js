@@ -42,8 +42,8 @@ export default function BlogIndex({ posts }) {
           {posts.map((post, i) => (
             <Column lg={8} md={4} sm={4} key={post.filePath}>
               <Link
-                as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
-                href={`/posts/[slug]`}
+                as={`/blog/${post.filePath.replace(/\.mdx?$/, '')}`}
+                href={`/blog/[slug]`}
                 className="blog-post-link"
                 passHref
               >
