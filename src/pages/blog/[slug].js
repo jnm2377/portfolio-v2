@@ -19,7 +19,9 @@ export default function PostPage({ source, frontMatter }) {
       <div className="section-content">
         <div className="center-content">
           <PostBackClick />
-          <h1 style={{ paddingTop: '2rem' }}>{frontMatter.title}</h1>
+          <h1 style={{ fontSize: '4rem', fontWeight: '800' }}>
+            {frontMatter.title}
+          </h1>
           <p>{frontMatter.date}</p>
           <MDXRemote {...source} components={components} />
         </div>
