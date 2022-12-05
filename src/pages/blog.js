@@ -86,7 +86,10 @@ export default function BlogIndex({ posts }) {
 
 export function getStaticProps() {
   const posts = postFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
+    const fileFolder = filePath.replace(/\.mdx?$/, '');
+    const source = fs.readFileSync(
+      path.join(POSTS_PATH, fileFolder, `${filePath}.mdx`)
+    );
     const { content, data } = matter(source);
 
     return {
