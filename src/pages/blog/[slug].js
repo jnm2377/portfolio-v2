@@ -7,8 +7,12 @@ import matter from 'gray-matter';
 import path from 'path';
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
 import PostBackClick from '../../components/PostBackClick';
+import Image from '../../components/markdown/Image';
+import rehypeImgSize from 'rehype-img-size';
 
-const components = { PostBackClick };
+const components = {
+  img: Image,
+};
 
 export default function PostPage({ source, frontMatter }) {
   return (
@@ -41,7 +45,7 @@ export const getStaticProps = async ({ params }) => {
     // Optionally pass remark/rehype plugins
     mdxOptions: {
       remarkPlugins: [],
-      rehypePlugins: [],
+      rehypePlugins: [[rehypeImgSize, { dir: 'public' }]],
     },
     scope: data,
   });
