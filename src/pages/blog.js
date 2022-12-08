@@ -39,28 +39,31 @@ export default function BlogIndex({ posts }) {
 
       <Layer style={{ paddingTop: '3rem' }}>
         <Grid>
-          {posts.map((post, i) => (
-            <Column lg={8} md={4} sm={4} key={post.filePath}>
-              <Link
-                as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
-                href={`/posts/[slug]`}
-                className="blog-post-link"
-                passHref
-              >
-                <ClickableTile
-                  className={cx('portfolio-tile', {
-                    ['one-tile']: i === 0,
-                    ['two-tile']: i === 1,
-                    ['three-tile']: i === 2,
-                  })}
-                >
-                  <AspectRatio ratio="16x9">
-                    <h4>{post.data.title}</h4>
-                  </AspectRatio>
-                </ClickableTile>
-              </Link>
-            </Column>
-          ))}
+          {posts.map(
+            (post, i) =>
+              post.data.hidden !== true && (
+                <Column lg={8} md={4} sm={4} key={post.filePath}>
+                  <Link
+                    as={`/blog/${post.filePath.replace(/\.mdx?$/, '')}`}
+                    href={`/blog/[slug]`}
+                    className="blog-post-link"
+                    passHref
+                  >
+                    <ClickableTile
+                      className={cx('portfolio-tile', {
+                        ['one-tile']: i === 0,
+                        ['two-tile']: i === 1,
+                        ['three-tile']: i === 2,
+                      })}
+                    >
+                      <AspectRatio ratio="16x9">
+                        <h4>{post.data.title}</h4>
+                      </AspectRatio>
+                    </ClickableTile>
+                  </Link>
+                </Column>
+              )
+          )}
         </Grid>
       </Layer>
       <section className="homepage-section">
@@ -83,7 +86,10 @@ export default function BlogIndex({ posts }) {
 
 export function getStaticProps() {
   const posts = postFilePaths.map((filePath) => {
-    const source = fs.readFileSync(path.join(POSTS_PATH, filePath));
+    const fileFolder = filePath.replace(/\.mdx?$/, '');
+    const source = fs.readFileSync(
+      path.join(POSTS_PATH, fileFolder, `${filePath}.mdx`)
+    );
     const { content, data } = matter(source);
 
     return {
