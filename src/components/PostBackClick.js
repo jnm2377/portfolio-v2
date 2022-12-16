@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { ArrowLeft } from '@carbon/react/icons';
+import Translator from './Translator';
 
 const PostBackClick = ({ href = '/blog' }) => {
   const router = useRouter();
@@ -12,7 +13,11 @@ const PostBackClick = ({ href = '/blog' }) => {
         router.push(href);
       }}
     >
-      <ArrowLeft /> just kidding
+      <ArrowLeft />{' '}
+      <Translator
+        englishLabel="just kidding"
+        spanishLabel="estaba jugando, regresame"
+      />
     </a>
   );
 };
