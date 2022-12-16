@@ -9,9 +9,15 @@ import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils';
 import PostBackClick from '../../components/PostBackClick';
 import Image from '../../components/markdown/Image';
 import rehypeImgSize from 'rehype-img-size';
+import Translator from '../../components/Translator';
+import English from '../../components/markdown/English';
+import Spanish from '../../components/markdown/Spanish';
 
 const components = {
   img: Image,
+  Translator,
+  English,
+  Spanish,
 };
 
 export default function PostPage({ source, frontMatter }) {
