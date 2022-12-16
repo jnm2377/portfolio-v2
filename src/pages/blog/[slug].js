@@ -32,7 +32,10 @@ export default function PostPage({ source, frontMatter }) {
           <h1 style={{ fontSize: '4rem', fontWeight: '800' }}>
             {frontMatter.title}
           </h1>
-          <p>{frontMatter.date}</p>
+          <Translator>
+            <p>{frontMatter.date}</p>
+            <p>{frontMatter.spanishDate}</p>
+          </Translator>
           <MDXRemote {...source} components={components} />
         </div>
       </div>
