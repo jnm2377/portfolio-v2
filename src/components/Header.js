@@ -13,9 +13,11 @@ import {
 } from '@carbon/react';
 import { useRouter } from 'next/router';
 import { useThemePreference } from './ThemePreference';
+import { useLanguagePreference } from './LanguagePreference';
 import cx from 'classnames';
 import { Asleep, LightFilled } from '@carbon/react/icons';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+import Translator from './Translator';
 
 const Link = ({ children, href, ...rest }) => {
   const router = useRouter();
@@ -36,6 +38,7 @@ const Link = ({ children, href, ...rest }) => {
 export function Header({ home }) {
   const router = useRouter();
   const { theme, setTheme } = useThemePreference();
+  const { spanish, setSpanish } = useLanguagePreference();
   const [scrollTop, setScrollTop] = useState(0);
   const [headerPostition, setHeaderPosition] = useState(null);
 
@@ -80,14 +83,14 @@ export function Header({ home }) {
               href="/#about"
               element={Link}
             >
-              About
+              <Translator englishLabel="About" spanishLabel="Acerca de" />
             </HeaderMenuItem>
             <HeaderMenuItem
               isCurrentPage={router.pathname === '/#work' ? true : false}
               href="/#work"
               element={Link}
             >
-              Work
+              <Translator englishLabel="Work" spanishLabel="Trabajo" />
             </HeaderMenuItem>
             <HeaderMenuItem
               isCurrentPage={router.pathname === '/blog' ? true : false}
@@ -101,7 +104,7 @@ export function Header({ home }) {
               href="/#contact"
               element={Link}
             >
-              Contact
+              <Translator englishLabel="Contact" spanishLabel="Contacto" />
             </HeaderMenuItem>
           </HeaderNavigation>
           <Toggle
@@ -116,7 +119,18 @@ export function Header({ home }) {
             labelA={<LightFilled />}
             labelB={<Asleep />}
             id="toggle-1"
-            toggled={theme === 'g10' ? false : true}
+            toggled={theme !== 'g10'}
+            size="sm"
+            labelText=""
+          />
+          <Toggle
+            onToggle={() => {
+              setSpanish(!spanish);
+            }}
+            labelA="EN"
+            labelB="ES"
+            id="toggle-2"
+            toggled={spanish}
             size="sm"
             labelText=""
           />
