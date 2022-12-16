@@ -107,33 +107,35 @@ export function Header({ home }) {
               <Translator englishLabel="Contact" spanishLabel="Contacto" />
             </HeaderMenuItem>
           </HeaderNavigation>
-          <Toggle
-            onToggle={() => {
-              if (theme === 'g10') {
-                setTheme('g100');
-              }
-              if (theme === 'g100') {
-                setTheme('g10');
-              }
-            }}
-            labelA={<LightFilled />}
-            labelB={<Asleep />}
-            id="toggle-1"
-            toggled={theme !== 'g10'}
-            size="sm"
-            labelText=""
-          />
-          <Toggle
-            onToggle={() => {
-              setSpanish(!spanish);
-            }}
-            labelA="EN"
-            labelB="ES"
-            id="toggle-2"
-            toggled={spanish}
-            size="sm"
-            labelText=""
-          />
+          <div className="header-toggle-wrapper">
+            <Toggle
+              onToggle={() => {
+                if (theme === 'g10') {
+                  setTheme('g100');
+                }
+                if (theme === 'g100') {
+                  setTheme('g10');
+                }
+              }}
+              labelA={<LightFilled />}
+              labelB={<Asleep />}
+              id="toggle-1"
+              toggled={theme !== 'g10'}
+              size="sm"
+              labelText=""
+            />
+            <Toggle
+              onToggle={() => {
+                setSpanish(!spanish);
+              }}
+              labelA="EN"
+              labelB="ES"
+              id="toggle-2"
+              toggled={spanish}
+              size="sm"
+              labelText=""
+            />
+          </div>
           {/* <SideNav
             aria-label="Side navigation"
             expanded={isSideNavExpanded}
