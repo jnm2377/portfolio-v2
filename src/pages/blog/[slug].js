@@ -29,12 +29,19 @@ export default function PostPage({ source, frontMatter }) {
       <div className="section-content">
         <div className="center-content">
           <PostBackClick />
-          <h1 style={{ fontSize: '4rem', fontWeight: '800' }}>
-            {frontMatter.title}
-          </h1>
           <Translator>
-            <p>{frontMatter.date}</p>
-            <p>{frontMatter.spanishDate}</p>
+            <>
+              <h1 style={{ fontSize: '4rem', fontWeight: '800' }}>
+                {frontMatter.title}
+              </h1>
+              <p>{frontMatter.date}</p>
+            </>
+            <>
+              <h1 style={{ fontSize: '4rem', fontWeight: '800' }}>
+                {frontMatter.spanishTitle}
+              </h1>
+              <p>{frontMatter.spanishDate}</p>
+            </>
           </Translator>
           <MDXRemote {...source} components={components} />
         </div>
