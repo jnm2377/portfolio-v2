@@ -55,7 +55,7 @@ export default function PostPage({ source, frontMatter }) {
         <title>{frontMatter.title}</title>
       </Head>
       <div className="section-content">
-        <div className="center-content">
+        <div className="center-content" style={{ paddingBottom: '10rem' }}>
           <PostBackClick />
           <Translator>
             <>
