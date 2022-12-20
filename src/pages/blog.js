@@ -26,30 +26,23 @@ export default function BlogIndex({ posts }) {
           <div className="center-content">
             <h1>Welcome.</h1>
             <p>
-              This page is still under construction and these posts are just
-              fake posts, although the content them in them is very real.
-              Eventually I'll get around to blogging more, once I've finished my
-              other projects. I intend to write about more than just front end
-              development. This blog will be about all things related to my
-              life: work, tech, management, relationships, dogs, adventures, and
-              more. It's definitely very scary putting that much information
-              about myself out there, but I really enjoy writing and I hope
-              people enjoy reading what I share.
+              This feature is still under construction. Eventually I'll get
+              around to blogging more and adding more features to this page,
+              once I've finished my other projects. I intend to write about more
+              than just front end development. This blog will be about all
+              things related to my life: work, tech, management, relationships,
+              dogs, adventures, and more.
             </p>
           </div>
           <div className="center-content">
             <h1>Bienvenido.</h1>
             <p>
-              Esta pagina todavia está bajo construcción y estos posts son
-              falsos pero el contenido dentro de ellos es muy real.
-              Eventualmente voy a escribir más en mi blog, después de haber
-              terminado todos mis otros proyectos. Tengo la intención de
-              escribir sobre más que solo el desarrollo front-end. Este blog
+              Esta función todavia está bajo construcción. Eventualmente voy a
+              escribir más en mi blog y añadirle más funciones a esta página,
+              una vez que haya terminado mis otros proyectos. Tengo la intención
+              de escribir sobre más que solo el desarrollo front-end. Este blog
               será sobre todas las cosas relacionadas con mi vida: trabajo,
-              tecnología, relaciones, perros, aventuras y mucho más. Sin duda,
-              me intimida publicar tanta información sobre mí misma, pero
-              disfruto mucho al escribir y espero que la gente disfrute leyendo
-              lo que comparto.
+              tecnología, relaciones, perros, aventuras y mucho más.
             </p>
           </div>
         </Translator>
