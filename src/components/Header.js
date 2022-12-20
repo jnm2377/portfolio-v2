@@ -149,7 +149,6 @@ export function Header({ home }) {
           <SideNav
             aria-label="Side navigation"
             expanded={true}
-            isPersistent={false}
             aria-hidden={!hide}
           >
             <Button
