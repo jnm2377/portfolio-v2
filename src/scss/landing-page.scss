@@ -86,7 +86,7 @@ a.cds--header__name:hover {
 .cds--side-nav__navigation {
   top: 0;
   background: rgb(222, 173, 250);
-  // box-shadow: -1px 0px 396px -15px rgba(0, 0, 0, 0.27);
+  background: rgb(240, 213, 255);
 }
 
 @media (max-width: 65.98rem) {
@@ -133,13 +133,16 @@ a.cds--header__name:hover {
 
 .close-menu-button:focus {
   background: rgba(253, 244, 119, 0.7);
-  border: 2px solid black;
+  border: none;
+  outline: 2px solid black;
+  outline-offset: -4px;
+  color: black;
   box-shadow: none;
 }
 
 // expand func
 .sidenav-default .cds--side-nav__overlay-active {
-  display: none;
+  width: 0;
 }
 
 .sidenav-default .cds--side-nav__navigation {
@@ -148,7 +151,7 @@ a.cds--header__name:hover {
 }
 
 .slide-in .cds--side-nav__overlay-active {
-  display: inline;
+  width: 100vw;
 }
 
 .slide-in .cds--side-nav__navigation {
@@ -162,7 +165,7 @@ a.cds--header__name:hover {
   }
 
   .cds--side-nav__navigation {
-    background: rgba(3, 23, 66, 1);
+    background: $background;
   }
 
   .cds--side-nav a.cds--header__menu-item {
@@ -186,9 +189,6 @@ a.cds--header__name:hover {
 
   .close-menu-button:focus {
     background: rgb(253, 244, 119);
-    border: none;
-    outline: 2px solid black;
-    outline-offset: -4px;
     color: black;
   }
 }
