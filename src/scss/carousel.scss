@@ -1,0 +1,62 @@
+.carousel {
+  width: 100%;
+}
+
+.carousel-slide-wrapper {
+  overflow: hidden;
+  margin-bottom: rem(16px);
+  position: relative;
+}
+
+.carousel-slide {
+  position: relative;
+  white-space: nowrap;
+
+  & img {
+    height: auto;
+    width: 100%;
+    display: inline;
+    transition: transform 700ms cubic-bezier(0.5, 0, 0.1, 1);
+  }
+}
+
+//Radio button nav
+.carousel-nav-wrapper {
+  display: flex;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.carousel-nav-wrapper
+  .cds--radio-button
+  + .cds--radio-button__label
+  .cds--radio-button__appearance {
+  background-color: gray;
+  border: none;
+  height: 0.5rem;
+  width: 0.5rem;
+  margin-right: 6px;
+  margin-left: 0;
+
+  &:hover {
+    background-color: lightgrey;
+  }
+}
+
+.carousel-nav-wrapper
+  .cds--radio-button:checked
+  + .cds--radio-button__label
+  .cds--radio-button__appearance {
+  background-color: pink;
+}
+
+.carousel-nav-wrapper
+  .cds--radio-button:checked
+  + .cds--radio-button__label
+  .cds--radio-button__appearance:before {
+  display: none;
+}
+
+.carousel-nav-item.cds--radio-button-wrapper:not(:last-of-type) {
+  margin-right: 0;
+}
