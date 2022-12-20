@@ -112,6 +112,11 @@ a.cds--header__name:hover {
 .cds--side-nav .cds--header__menu-item--current::after {
 }
 
+//open btn
+.cds--header__menu-trigger:focus {
+  border: 2px solid black;
+}
+
 //close btn
 .close-menu-button {
   width: 100%;
@@ -152,6 +157,10 @@ a.cds--header__name:hover {
 
 //dark sidenav
 .dark-header {
+  .cds--header__menu-trigger:focus {
+    border: 2px solid white;
+  }
+
   .cds--side-nav__navigation {
     background: rgba(3, 23, 66, 1);
   }
