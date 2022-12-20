@@ -18,6 +18,39 @@ import cx from 'classnames';
 import { postFilePaths, POSTS_PATH } from '../utils/mdxUtils';
 import Translator from '../components/Translator';
 
+import React, { useState, useEffect } from 'react';
+
+const useGetMediumPosts = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const result = await fetch(
+          'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@josefinanoemi4'
+        ).then((res) => res.json());
+        setPosts(result);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchData();
+  }, []);
+
+  /* 
+  post.items = [{
+    author: '',
+    categories: [],
+    link: '',
+    pubDate: '',
+    thumbnail: '',
+    title: ''
+  }]
+  */
+
+  return posts.items;
+};
+
 export default function BlogIndex({ posts }) {
   return (
     <Layout>
@@ -80,8 +113,27 @@ export default function BlogIndex({ posts }) {
                 </Column>
               )
           )}
+
+          {useGetMediumPosts()?.map((post, i) => (
+            <Column lg={8} md={4} sm={4} key={post.pubDate}>
+              <ClickableTile
+                href={post.link}
+                target="_blank"
+                className={cx('portfolio-tile', {
+                  ['one-tile']: i === 2,
+                  ['two-tile']: i === 3,
+                  ['three-tile']: i === 1 || i === 4,
+                })}
+              >
+                <AspectRatio ratio="16x9">
+                  <h4>{post.title}</h4>
+                </AspectRatio>
+              </ClickableTile>
+            </Column>
+          ))}
         </Grid>
       </Layer>
+
       <section className="homepage-section">
         <div className="section-content">
           <div className="center-content">
