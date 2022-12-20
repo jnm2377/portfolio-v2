@@ -1,4 +1,5 @@
 import {
+  Button,
   HeaderContainer,
   Header as CarbonHeader,
   SkipToContent,
@@ -15,25 +16,9 @@ import { useRouter } from 'next/router';
 import { useThemePreference } from './ThemePreference';
 import { useLanguagePreference } from './LanguagePreference';
 import cx from 'classnames';
-import { Asleep, LightFilled } from '@carbon/react/icons';
-import { useEffect, useState } from 'react';
+import { Asleep, LightFilled, ChevronLeft } from '@carbon/react/icons';
+import { useEffect, useState, useRef } from 'react';
 import Translator from './Translator';
-
-const Link = ({ children, href, ...rest }) => {
-  const router = useRouter();
-  return (
-    <a // eslint-disable-line jsx-a11y/anchor-is-valid
-      href="#"
-      {...rest}
-      onClick={(e) => {
-        e.preventDefault();
-        router.push(href);
-      }}
-    >
-      {children}
-    </a>
-  );
-};
 
 export function Header({ home }) {
   const router = useRouter();
@@ -41,12 +26,36 @@ export function Header({ home }) {
   const { spanish, setSpanish } = useLanguagePreference();
   const [scrollTop, setScrollTop] = useState(0);
   const [headerPostition, setHeaderPosition] = useState(null);
+  const [hide, setHide] = useState(false);
+  const closeBtnRef = useRef();
 
-  const headerClassNames = cx({
+  const Link = ({ children, href, ...rest }) => {
+    const router = useRouter();
+    return (
+      <a // eslint-disable-line jsx-a11y/anchor-is-valid
+        href="#"
+        {...rest}
+        onClick={(e) => {
+          e.preventDefault();
+          router.push(href);
+          setHide(false);
+        }}
+      >
+        {children}
+      </a>
+    );
+  };
+
+  const headerClassNames = cx('sidenav-default', {
     ['dark-header']: theme === 'g100',
     ['is-sticky']: headerPostition === 0,
     ['no-scroll']: !home,
+    ['slide-in']: hide,
   });
+
+  useEffect(() => {
+    closeBtnRef.current.focus();
+  }, [hide]);
 
   useEffect(() => {
     function onScroll() {
@@ -63,44 +72,45 @@ export function Header({ home }) {
 
   return (
     <HeaderContainer
-      render={({ isSideNavExpanded, onClickSideNavExpand }) => (
+      render={() => (
         <CarbonHeader
           aria-label="Josefina Mancilla"
           className={headerClassNames}
         >
-          {/* <SkipToContent /> */}
-          {/* <HeaderMenuButton
+          <HeaderMenuButton
             aria-label="Open menu"
-            onClick={onClickSideNavExpand}
-            isActive={isSideNavExpanded}
-          /> */}
+            onClick={() => {
+              setHide(true);
+            }}
+            aria-hidden={hide}
+          />
           <HeaderName href="/#hello" prefix="♥" element={Link}>
             {''}
           </HeaderName>
           <HeaderNavigation aria-label="Josefina Mancilla">
             <HeaderMenuItem
-              isCurrentPage={router.pathname === '/#about' ? true : false}
+              isCurrentPage={router.pathname === '/#about'}
               href="/#about"
               element={Link}
             >
               <Translator englishLabel="About" spanishLabel="Acerca de" />
             </HeaderMenuItem>
             <HeaderMenuItem
-              isCurrentPage={router.pathname === '/#work' ? true : false}
+              isCurrentPage={router.pathname === '/#work'}
               href="/#work"
               element={Link}
             >
               <Translator englishLabel="Work" spanishLabel="Trabajo" />
             </HeaderMenuItem>
             <HeaderMenuItem
-              isCurrentPage={router.pathname === '/blog' ? true : false}
+              isCurrentPage={router.pathname === '/blog'}
               href="/blog"
               element={Link}
             >
               Blog
             </HeaderMenuItem>
             <HeaderMenuItem
-              isCurrentPage={router.pathname === '/#contact' ? true : false}
+              isCurrentPage={router.pathname === '/#contact'}
               href="/#contact"
               element={Link}
             >
@@ -136,21 +146,55 @@ export function Header({ home }) {
               labelText=""
             />
           </div>
-          {/* <SideNav
+          <SideNav
             aria-label="Side navigation"
-            expanded={isSideNavExpanded}
-            isPersistent={false}>
+            expanded={true}
+            isPersistent={false}
+            aria-hidden={!hide}
+          >
+            <Button
+              className="close-menu-button"
+              aria-label="Close menu"
+              onClick={() => {
+                setHide(false);
+              }}
+              ref={closeBtnRef}
+            >
+              <ChevronLeft />
+            </Button>
             <SideNavItems>
               <HeaderSideNavItems>
-                <HeaderMenuItem isCurrentPage href="#">
-                  About
+                <HeaderMenuItem
+                  href="/#about"
+                  element={Link}
+                  isCurrentPage={router.pathname === '/#about'}
+                >
+                  <Translator englishLabel="About" spanishLabel="Acerca de" />
                 </HeaderMenuItem>
-                <HeaderMenuItem href="#">Portfolio</HeaderMenuItem>
-                <HeaderMenuItem href="#">Blog</HeaderMenuItem>
-                <HeaderMenuItem href="#">Contact</HeaderMenuItem>
+                <HeaderMenuItem
+                  href="/#work"
+                  element={Link}
+                  isCurrentPage={router.pathname === '/#work'}
+                >
+                  <Translator englishLabel="Work" spanishLabel="Trabajo" />
+                </HeaderMenuItem>
+                <HeaderMenuItem
+                  href="/blog"
+                  element={Link}
+                  isCurrentPage={router.pathname === '/blog'}
+                >
+                  Blog
+                </HeaderMenuItem>
+                <HeaderMenuItem
+                  href="/#contact"
+                  element={Link}
+                  isCurrentPage={router.pathname === '/#contact'}
+                >
+                  <Translator englishLabel="Contact" spanishLabel="Contacto" />
+                </HeaderMenuItem>
               </HeaderSideNavItems>
             </SideNavItems>
-          </SideNav> */}
+          </SideNav>
         </CarbonHeader>
       )}
     />
