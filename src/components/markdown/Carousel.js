@@ -5,9 +5,7 @@ const Carousel = ({ children, id, count }) => {
   const stringArr = count.split(' ');
   const numArr = stringArr.map((i) => Number(i));
   const [checkedRadio, setCheckedRadio] = useState(1);
-
   const slideRef = useRef();
-  console.log(children);
 
   let initialX = null;
   let initialY = null;
