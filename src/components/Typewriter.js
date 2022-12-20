@@ -52,6 +52,9 @@ export default function Typewriter({
   }, [blink]);
 
   return (
-    <h1>{`${words[index].substring(0, subIndex)}${blink ? '|' : ' '}`}</h1>
+    <h1 aria-label="Josefina Mancilla">{`${words[index].substring(
+      0,
+      subIndex
+    )}${blink ? '|' : ' '}`}</h1>
   );
 }
