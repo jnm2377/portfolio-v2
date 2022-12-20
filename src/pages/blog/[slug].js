@@ -12,6 +12,7 @@ import rehypeImgSize from 'rehype-img-size';
 import Translator from '../../components/Translator';
 import English from '../../components/markdown/English';
 import Spanish from '../../components/markdown/Spanish';
+import Carousel from '../../components/markdown/Carousel';
 import {
   Grid,
   Column,
@@ -23,6 +24,7 @@ import {
 
 const components = {
   img: Image,
+  Carousel,
   Translator,
   English,
   Spanish,
