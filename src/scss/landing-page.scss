@@ -150,6 +150,39 @@ a.cds--header__name:hover {
   transform: translateX(0);
 }
 
+//dark sidenav
+.dark-header {
+  .cds--side-nav__navigation {
+    background: rgba(3, 23, 66, 1);
+  }
+
+  .cds--side-nav a.cds--header__menu-item {
+    color: white;
+  }
+
+  .cds--side-nav a.cds--header__menu-item:focus,
+  .cds--side-nav
+    a.cds--header__menu-item.cds--header__menu-item--current:focus {
+    outline-color: white;
+  }
+
+  .close-menu-button {
+    color: white;
+  }
+
+  .close-menu-button:hover {
+    background: rgb(253, 244, 119);
+    color: black;
+  }
+
+  .close-menu-button:focus {
+    background: rgb(253, 244, 119);
+    border: none;
+    outline: 2px solid black;
+    outline-offset: -4px;
+    color: black;
+  }
+}
 // -----------------
 // dark landing
 // -----------------
