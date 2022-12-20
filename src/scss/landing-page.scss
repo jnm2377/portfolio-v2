@@ -80,6 +80,119 @@ a.cds--header__name:hover {
 }
 
 // -----------------
+// side nav
+// -----------------
+
+.cds--side-nav__navigation {
+  top: 0;
+  background: rgb(222, 173, 250);
+  // box-shadow: -1px 0px 396px -15px rgba(0, 0, 0, 0.27);
+}
+
+@media (max-width: 65.98rem) {
+  .cds--side-nav__overlay-active {
+    top: 0;
+  }
+}
+
+//sidenav items
+.cds--side-nav a.cds--header__menu-item {
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.cds--side-nav a.cds--header__menu-item:focus,
+.cds--side-nav a.cds--header__menu-item.cds--header__menu-item--current:focus {
+  border: none;
+  outline-color: black;
+}
+
+// sidenav item active style
+.cds--side-nav .cds--header__menu-item--current::after {
+}
+
+//open btn
+.cds--header__menu-trigger:focus {
+  border: 2px solid black;
+}
+
+//close btn
+.close-menu-button {
+  width: 100%;
+  background: $background-hover;
+  justify-content: flex-start;
+  padding-left: 1rem;
+  color: black;
+}
+
+.close-menu-button:hover {
+  background: rgba(253, 244, 119, 0.7);
+  color: black;
+}
+
+.close-menu-button:focus {
+  background: rgba(253, 244, 119, 0.7);
+  border: 2px solid black;
+  box-shadow: none;
+}
+
+// expand func
+.sidenav-default .cds--side-nav__overlay-active {
+  display: none;
+}
+
+.sidenav-default .cds--side-nav__navigation {
+  transform: translateX(-256px);
+  transition: 100ms ease all;
+}
+
+.slide-in .cds--side-nav__overlay-active {
+  display: inline;
+}
+
+.slide-in .cds--side-nav__navigation {
+  transform: translateX(0);
+}
+
+//dark sidenav
+.dark-header {
+  .cds--header__menu-trigger:focus {
+    border: 2px solid white;
+  }
+
+  .cds--side-nav__navigation {
+    background: rgba(3, 23, 66, 1);
+  }
+
+  .cds--side-nav a.cds--header__menu-item {
+    color: white;
+  }
+
+  .cds--side-nav a.cds--header__menu-item:focus,
+  .cds--side-nav
+    a.cds--header__menu-item.cds--header__menu-item--current:focus {
+    outline-color: white;
+  }
+
+  .close-menu-button {
+    color: white;
+  }
+
+  .close-menu-button:hover {
+    background: rgb(253, 244, 119);
+    color: black;
+  }
+
+  .close-menu-button:focus {
+    background: rgb(253, 244, 119);
+    border: none;
+    outline: 2px solid black;
+    outline-offset: -4px;
+    color: black;
+  }
+}
+// -----------------
 // dark landing
 // -----------------
 

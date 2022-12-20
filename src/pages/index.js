@@ -227,16 +227,16 @@ export default function Home() {
                   </>
                 </Translator>
                 <p className="social-icons">
-                  <Link href="#">
+                  <Link href="https://github.com/jnm2377">
                     <LogoGithub size={20} />
                   </Link>
-                  <Link href="#">
+                  <Link href="https://www.linkedin.com/in/josefinamancilla/">
                     <LogoLinkedin size={20} />
                   </Link>
-                  <Link href="#">
+                  <Link href="https://twitter.com/brosefina_nm">
                     <LogoTwitter size={20} />
                   </Link>
-                  <Link href="#">
+                  <Link href="https://www.instagram.com/mankilla_art/">
                     <LogoInstagram size={20} />
                   </Link>
                   <Link href="https://medium.com/@josefinanoemi4">
