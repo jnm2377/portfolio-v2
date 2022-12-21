@@ -1,19 +1,37 @@
 import React, { useState, useRef } from 'react';
 import { RadioButtonGroup, RadioButton } from '@carbon/react';
+import Image from 'next/image';
+import { useThemePreference } from '../ThemePreference';
 
 const Carousel = ({ children, id, count }) => {
   const stringArr = count.split(' ');
   const numArr = stringArr.map((i) => Number(i));
   const [checkedRadio, setCheckedRadio] = useState(1);
   const slideRef = useRef();
+  const { theme } = useThemePreference();
 
   let initialX = null;
   let initialY = null;
 
+  // Pixel GIF code adapted from https://stackoverflow.com/a/33919020/266535
+  const keyStr =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
+  const triplet = (e1, e2, e3) =>
+    keyStr.charAt(e1 >> 2) +
+    keyStr.charAt(((e1 & 3) << 4) | (e2 >> 4)) +
+    keyStr.charAt(((e2 & 15) << 2) | (e3 >> 6)) +
+    keyStr.charAt(e3 & 63);
+
+  const rgbDataURL = (r, g, b) =>
+    `data:image/gif;base64,R0lGODlhAQABAPAA${
+      triplet(0, r, g) + triplet(b, 255, 255)
+    }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`;
+
   //updating radio btn
   const onChange = (e) => {
     if (typeof document !== undefined) {
-      const images = slideRef.current.querySelectorAll('img');
+      const images = slideRef.current.querySelectorAll('span');
 
       setCheckedRadio(e);
 
@@ -109,6 +127,9 @@ const Carousel = ({ children, id, count }) => {
 
   return (
     <div className={`carousel ${id}`}>
+      <p className="carousel-helper-text">
+        click and drag to swipe or click buttons and use arrow keys
+      </p>
       <RadioButtonGroup
         className={'carousel-nav-wrapper'}
         name={`Carousel navigation ${id}`}
@@ -138,13 +159,21 @@ const Carousel = ({ children, id, count }) => {
         >
           {children.map((item, i) => {
             return (
-              <img
-                draggable="false"
-                src={item.props.children.props.src}
-                alt={item.props.children.props.alt}
-                key={`img-${i}`}
-                className="carousel-img"
-              />
+              <span key={`img-${i}`}>
+                <Image
+                  draggable="false"
+                  src={item.props.children.props.src}
+                  alt={item.props.children.props.alt}
+                  height={714}
+                  width={552}
+                  placeholder="blur"
+                  blurDataURL={
+                    theme === 'g10'
+                      ? rgbDataURL(222, 173, 250)
+                      : rgbDataURL(3, 23, 66)
+                  }
+                />
+              </span>
             );
           })}
         </div>
