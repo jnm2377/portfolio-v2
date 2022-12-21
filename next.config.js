@@ -1,8 +1,9 @@
 'use strict';
 
 const path = require('path');
+const withImages = require('next-images');
 
-module.exports = {
+module.exports = withImages({
   i18n: {
     locales: ['en-US'],
     defaultLocale: 'en-US',
@@ -14,4 +15,4 @@ module.exports = {
     config.resolve.alias['~'] = path.join(__dirname, 'src');
     return config;
   },
-};
+});
