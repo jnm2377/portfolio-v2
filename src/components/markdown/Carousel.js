@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { RadioButtonGroup, RadioButton } from '@carbon/react';
 import Image from 'next/image';
 import { useThemePreference } from '../ThemePreference';
+import Translator from '../Translator';
 
 const Carousel = ({ children, id, count }) => {
   const stringArr = count.split(' ');
@@ -127,9 +128,15 @@ const Carousel = ({ children, id, count }) => {
 
   return (
     <div className={`carousel ${id}`}>
-      <p className="carousel-helper-text">
-        click and drag to swipe or click buttons and use arrow keys
-      </p>
+      <Translator>
+        <p className="carousel-helper-text">
+          click and drag to swipe or click buttons and use arrow keys
+        </p>
+        <p className="carousel-helper-text">
+          haz clic y arrastra para deslizar o haz clic en los botones y utiliza
+          las teclas de flecha
+        </p>
+      </Translator>
       <RadioButtonGroup
         className={'carousel-nav-wrapper'}
         name={`Carousel navigation ${id}`}
